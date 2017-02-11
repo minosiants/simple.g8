@@ -1,0 +1,14 @@
+[repositories]
+ local
+ libs-releases-maven: http://artifactory.daas.corp.telstra.com/artifactory/libs-release/
+ libs-releases-ivy: http://artifactory.daas.corp.telstra.com/artifactory/libs-release/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+ a-ivy-proxy-releases: http://artifactory.daas.corp.telstra.com/artifactory/sbt-ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+ a-maven-proxy-releases: http://artifactory.daas.corp.telstra.com/artifactory/sbt-ivy-releases/
+ b-ivy-proxy-releases: http://artifactory.daas.corp.telstra.com/artifactory/sbt-maven-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+ b-maven-proxy-releases: http://artifactory.daas.corp.telstra.com/artifactory/sbt-maven-releases/
+ commbank-ivy-proxy-releases: http://artifactory.daas.corp.telstra.com/artifactory/sbt-commbank/, [orgPath]/[module]_[scalaVersion]_[sbtVersion]/[revision]/[artifact](-[classifier])-[revision].[ext]
+ my-maven-proxy-releases: http://artifactory.daas.corp.telstra.com/artifactory/sbt-commbank/
+ bigdata-snapshots: http://artifactory.daas.corp.telstra.com/artifactory/bigdata-snapshots/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+ bigdata-maven-snapshots: http://artifactory.daas.corp.telstra.com/artifactory/bigdata-snapshots/
+ bigdata-releases: http://artifactory.daas.corp.telstra.com/artifactory/bigdata-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+ bigdata-maven-releases: http://artifactory.daas.corp.telstra.com/artifactory/bigdata-releases/
