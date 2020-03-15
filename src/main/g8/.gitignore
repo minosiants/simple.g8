@@ -15,3 +15,6 @@ target
 *.sublime-project
 *.sublime-workspace
 tests.iml
+.bloop
+.metals
+project/metals.sbt
