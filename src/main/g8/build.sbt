@@ -1,5 +1,3 @@
-scalaVersion := "2.13.1"
-
 val catsVersion           = "2.1.0"
 val catsEffectVersion     = "2.1.2"
 val specs2Version         = "4.8.3"
@@ -9,7 +7,7 @@ val catsEffectTestVersion = "0.3.0"
 
 lazy val root = (project in file("."))
   .settings(
-    organization := "com.minosiatns",
+    organization := "com.minosiants",
     name := "$name;format=" normalize" $",
     scalaVersion := "2.13.1",
     libraryDependencies ++= Seq(
