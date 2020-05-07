@@ -1,6 +1,7 @@
 val catsVersion           = "2.1.0"
 val catsEffectVersion     = "2.1.2"
 val specs2Version         = "4.8.3"
+val log4catsVersion       = "1.0.1"
 val logbackVersion        = "1.2.3"
 val scalacheckVersion     = "1.14.1"
 val catsEffectTestVersion = "0.3.0"
@@ -9,15 +10,22 @@ lazy val root = (project in file("."))
   .settings(
     organization := "com.minosiants",
     name := "$name;format=" normalize" $",
-    scalaVersion := "2.13.1",
+    scalaVersion := "2.13.2",
+    scalacOptions ++= Seq("-Ymacro-annotations", "-Ywarn-unused", "-Yrangepos"),
     libraryDependencies ++= Seq(
-      "org.typelevel"   %% "cats-core"                  % catsVersion,
-      "org.typelevel"   %% "cats-effect"                % catsEffectVersion,
-      "org.scalacheck"  %% "scalacheck"                 % scalacheckVersion % "test",
-      "com.codecommit"  %% "cats-effect-testing-specs2" % catsEffectTestVersion % "test",
-      "ch.qos.logback"  % "logback-classic"             % logbackVersion
+      "org.typelevel"     %% "cats-core"                  % catsVersion,
+      "org.typelevel"     %% "cats-effect"                % catsEffectVersion,
+      "org.scalacheck"    %% "scalacheck"                 % scalacheckVersion % "test",
+      "io.chrisdavenport" %% "log4cats-slf4j"             % log4catsVersion,
+      "org.specs2"        %% "specs2-core"                % specs2Version % Test,
+      "org.specs2"        %% "specs2-scalacheck"          % specs2Version % Test,
+      "com.codecommit"    %% "cats-effect-testing-specs2" % catsEffectTestVersion % "test",
+      "ch.qos.logback"    % "logback-classic"             % logbackVersion
     ),
-    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3")
+    
+    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
+    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1")
+
   ).settings(licenceSettings)
   .settings(releaseProcessSettings)
 
