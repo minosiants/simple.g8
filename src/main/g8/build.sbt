@@ -1,7 +1,7 @@
-val catsVersion           = "2.1.0"
-val catsEffectVersion     = "2.1.2"
-val specs2Version         = "4.8.3"
-val log4catsVersion       = "1.0.1"
+val catsVersion           = "2.3.0"
+val catsEffectVersion     = "2.3.0"
+val specs2Version         = "4.9.2"
+val log4catsVersion       = "1.1.1"
 val logbackVersion        = "1.2.3"
 val scalacheckVersion     = "1.14.1"
 val catsEffectTestVersion = "0.3.0"
@@ -10,8 +10,9 @@ lazy val root = (project in file("."))
   .settings(
     organization := "com.minosiants",
     name := "$name;format=" normalize" $",
-    scalaVersion := "2.13.2",
-    scalacOptions ++= Seq("-Ymacro-annotations", "-Ywarn-unused", "-Yrangepos"),
+    scalaVersion := "2.12.12",
+    crossScalaVersions := Seq("2.12.12", "2.13.4"),
+    scalacOptions ++= Seq("-Ymacro-annotations", "-Ywarn-unused", "-Yrangepos", "-Xlint"),
     libraryDependencies ++= Seq(
       "org.typelevel"     %% "cats-core"                  % catsVersion,
       "org.typelevel"     %% "cats-effect"                % catsEffectVersion,
@@ -23,8 +24,9 @@ lazy val root = (project in file("."))
       "ch.qos.logback"    % "logback-classic"             % logbackVersion
     ),
     
-    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
-    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1")
+    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.1"),
+    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),
+    publishTo := sonatypePublishToBundle.value
 
   ).settings(licenceSettings)
   .settings(releaseProcessSettings)
@@ -47,6 +49,8 @@ lazy val releaseProcessSettings = Seq(
     setReleaseVersion,
     commitReleaseVersion,
     tagRelease,
+    releaseStepCommandAndRemaining("+ publishSigned"),
+    releaseStepCommand("sonatypeBundleRelease"),
     publishArtifacts,
     setNextVersion,
     commitNextVersion,
