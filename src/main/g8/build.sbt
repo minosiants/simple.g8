@@ -23,8 +23,9 @@ lazy val root = (project in file("."))
       "com.codecommit"    %% "cats-effect-testing-specs2" % catsEffectTestVersion % "test",
       "ch.qos.logback"    % "logback-classic"             % logbackVersion
     ),
-    
-    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.1"),
+    ddCompilerPlugin(
+       "org.typelevel" %% "kind-projector" % "0.11.1" cross CrossVersion.full
+    ),
     addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),
     publishTo := sonatypePublishToBundle.value
 
