@@ -6,7 +6,7 @@ lazy val commonSettings = Seq(
   scalaVersion := "2.11.8",
   scalafmtConfig := Some(baseDirectory.in(ThisBuild).value / ".scalafmt.conf")
 )
-
+ 
 scriptedLaunchOpts ++= sys.process.javaVmArguments.filter(
   a => Seq("-Xmx", "-Xms", "-XX", "-Dsbt.log.noformat").exists(a.startsWith)
 )
